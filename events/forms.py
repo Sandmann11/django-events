@@ -50,7 +50,7 @@ class CategoryForm(forms.ModelForm):
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ['name', 'category', 'venue', 'start_date', 'end_date', 'lineup', 'description', 'image']
+        fields = ['name', 'category', 'venue', 'start_date', 'end_date', 'lineup', 'description', 'image', 'organizer']
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
@@ -61,6 +61,7 @@ class EventForm(forms.ModelForm):
             'lineup': forms.SelectMultiple(choices=artist_choices, attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': '500 characters max.'}),
             'image': forms.FileInput(attrs={'class': 'form-control'}),
+            'organizer': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
 
