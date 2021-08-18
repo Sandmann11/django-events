@@ -1,0 +1,46 @@
+.card-body ul {
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.card-body h5 {
+    line-height: 1.5;
+}
+
+.form-group
+select#id_start_date_day.form-control{
+    max-width: fit-content;
+}
+
+.form-group
+select#id_start_date_month.form-control{
+    max-width: fit-content;
+}
+
+.form-group
+select#id_start_date_year.form-control{
+    max-width: fit-content;
+}
+
+.form-group
+select#id_end_date_day.form-control{
+    max-width: fit-content;
+}
+
+.form-group
+select#id_end_date_month.form-control{
+    max-width: fit-content;
+}
+
+.form-group
+select#id_end_date_year.form-control{
+    max-width: fit-content;
+}
+
+.form-control{
+    display: inline;
+}
+
+.form-group label{
+    display: block;
+}

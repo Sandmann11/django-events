@@ -1,0 +1,36 @@
+{% extends 'events/main.html' %}
+{% block title %}Artist Details{% endblock %}
+{% load static %}
+
+{% block content %}
+
+      <div class="card my-2">
+            
+            {% if artist.image %}
+                  <img src="{{ artist.image.url }}" class="card-img-top" alt="...">
+
+            {% else %}
+                  <img src="{% static 'img/artist/artist_generic.jpg' %}" class="card-img-top" alt="...">
+
+            {% endif %}
+
+            <div class="card-body">
+                  <h4 class="card-title">{{ artist.name }} <span class="fw-lighter">({{ artist.country }})</span></h4>
+                  <p>{{ artist.description|default_if_none:'No info...'|linebreaks }}</p>
+                  <a href="{% url 'artist_update' artist.pk %}">Edit</a>
+                  
+                  <hr>
+                  <h5>Playing at:</h5>
+                              
+                  {% for gig in artist.gigs.all %}
+                        <ul>
+                              <li><a href="{% url 'event_details' gig.pk %}">{{ gig }}</a></li>
+                        </ul>
+                  {% endfor %}
+
+                  <hr>
+                  {{ artist.website|urlize }}
+            </div>
+      </div>
+    
+{% endblock content %} 

@@ -1,0 +1,29 @@
+{% extends 'events/main.html' %}
+{% block title %}Venue Details{% endblock %}
+{% load static %}
+
+{% block content %}
+
+    <div class="card my-2">
+        
+        <div class="card-body">
+                <h4 class="card-title">{{ venue.name }}</h4>
+                <p>{{ venue.address }}</p>
+                <p>{{ venue.city }}</p>
+                <p>{{ venue.country }}</p>
+                <a href="{% url 'venue_update' venue.pk %}">Edit</a>
+                <hr>
+                <h5>All Events in {{ venue.name }}</h5>
+                            
+                {% for gig in venue.gigs.all %}
+                    <ul>
+                        <li><a href="{% url 'event_details' gig.pk %}">{{ gig }}</a></li>
+                    </ul>
+                {% endfor %}
+
+                <hr>
+                {{ venue.website|urlize }}
+        </div>
+    </div>
+    
+{% endblock content %} 

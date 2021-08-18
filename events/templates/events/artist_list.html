@@ -1,0 +1,17 @@
+{% extends 'events/main.html' %}
+{% load static %}
+{% block title %}All Artists{% endblock %}
+
+{% block content %}    
+
+<h4 class="mt-2 mb-1">All Artists</h4>
+<br>
+
+{% for artist in artist_list %}
+    <ul>
+        <li><a href="{% url 'artist_details' artist.pk %}"><strong>{{ artist.name }}</strong></a> ({{ artist.country }})</li>
+    </ul>
+
+{% endfor %}
+    
+{% endblock content %}
