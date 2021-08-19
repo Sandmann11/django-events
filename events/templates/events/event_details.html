@@ -4,65 +4,67 @@
 
 {% block content %}    
 
-<h3 class="mt-2 mb-0" >{{ event.name }}</h3>
-<p class="mt-0"><small><em>{{ event.category }}</em></small></p>
-<br>
-<a href="{% url 'event_update' event.pk %}">Edit</a>
+<div class="container w-75 mt-3 mx-auto">
 
-<ul class="nav nav-tabs mb-3">
-    <li class="nav-item">
-        <a class="nav-link active" data-bs-toggle="tab" href="#details">Details</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="tab" href="#lineup">Lineup</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="tab" href="#venue">Venue</a>
-    </li>    
-    <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="tab" href="#tickets">Tickets</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="tab" href="#contact">Contact</a>
-    </li>
-</ul>
 
-<div id="myTabContent" class="tab-content">
-    <div class="tab-pane fade show active" id="details">
+    {% if event.image %}
+        <p><img src="{{ event.image.url }}" class="w-100" alt=""></p>                   
+    {% endif %}
 
-        {% if event.image %}
-            <p><img src="{{ event.image.url }}" width="600" alt=""></p>                   
-        {% endif %}
+    <h3 class="mt-3 mb-0" >{{ event.name }}</h3>
+    <p class="my-0"><small><em>{{ event.category }}</em></small></p>
+    <p class="my-0"><small><a href="{% url 'event_update' event.pk %}">Edit</a></small></p>
 
-        <p>{{ event.description }}</p>
+    <ul class="nav nav-tabs my-3">
+        <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#details">Details</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#lineup">Lineup</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#venue">Venue</a>
+        </li>    
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#tickets">Tickets</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#contact">Contact</a>
+        </li>
+    </ul>
 
-    </div>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade show active" id="details">
+            <p>{{ event.description }}</p>
+        </div>
 
-    <div class="tab-pane fade" id="lineup">
-        {% for artist in event.lineup.all %}
+        <div class="tab-pane fade" id="lineup">
+            {% for artist in event.lineup.all %}
+                <ul>
+                    <li><a href="{% url 'artist_details' artist.pk %}"><strong>{{ artist.name }}</strong></a> ({{ artist.country }})</li>
+                </ul>
+            {% endfor %}
+        </div>
+
+        <div class="tab-pane fade" id="venue">
+            <p><a href="{% url 'venue_details' event.venue.pk %}">{{ event.venue.name }}</a></p>
+            <p>{{ event.venue.city }}, {{ event.venue.country }}</p>
+            
+        </div>  
+
+        <div class="tab-pane fade" id="tickets">
+            <a href="{{ event.tickets }}" taget="_blank">Get Tickets for {{ event.name }}</a>
+        </div>   
+
+        <div class="tab-pane fade" id="contact">
             <ul>
-                <li><a href="{% url 'artist_details' artist.pk %}"><strong>{{ artist.name }}</strong></a> ({{ artist.country }})</li>
+                <li><strong>Organizer: </strong>{{ event.organizer }}</li>
+                <li><strong>Email: </strong>{{ event.email }}</li>
+                <li><strong>Website: </strong><a href="{{ event.social_media }}">{{ event.social_media }}</a></li>
             </ul>
-        {% endfor %}
+        </div> 
+
     </div>
-
-    <div class="tab-pane fade" id="venue">
-        <p><a href="{% url 'venue_details' event.venue.pk %}">{{ event.venue.name }}</a></p>
-        <p>{{ event.venue.city }}, {{ event.venue.country }}</p>
-        
-    </div>  
-
-    <div class="tab-pane fade" id="tickets">
-        <a href="{{ event.tickets }}" taget="_blank">Get Tickets for {{ event.name }}</a>
-    </div>   
-
-    <div class="tab-pane fade" id="contact">
-        <ul>
-            <li><strong>Organizer: </strong>{{ event.organizer }}</li>
-            <li><strong>Email: </strong>{{ event.email }}</li>
-            <li><strong>Website: </strong><a href="{{ event.social_media }}">{{ event.social_media }}</a></li>
-        </ul>
-    </div> 
 
 </div>
     

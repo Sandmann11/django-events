@@ -4,7 +4,7 @@
 
 {% block content %}
 
-      <div class="card my-2">
+      <div class="card w-75 mx-auto my-2">
             
             {% if artist.image %}
                   <img src="{{ artist.image.url }}" class="card-img-top" alt="...">
@@ -15,9 +15,10 @@
             {% endif %}
 
             <div class="card-body">
-                  <h4 class="card-title">{{ artist.name }} <span class="fw-lighter">({{ artist.country }})</span></h4>
+                  <h4 class="card-title mb-0">{{ artist.name }} <span class="fw-lighter">({{ artist.country }})</span></h4>
+                  <!-- <a href="{% url 'artist_update' artist.pk %}">Edit</a> -->
+                  <p class="my-0"><small><a href="{% url 'artist_update' artist.pk %}">Edit</a></small></p>
                   <p>{{ artist.description|default_if_none:'No info...'|linebreaks }}</p>
-                  <a href="{% url 'artist_update' artist.pk %}">Edit</a>
                   
                   <hr>
                   <h5>Playing at:</h5>

@@ -4,14 +4,17 @@
 
 {% block content %}
 
-<h4 class="mt-2 mb-1">All Venues</h4>
-<br>
-
-{% for venue in venue_list %}
-    <ul>
-        <li><a href="{% url 'venue_details' venue.pk %}"><strong>{{ venue.name }}</strong></a> ({{ venue.country }})</li>
-    </ul>
-
-{% endfor %}
+<div class="container w-75 mt-3 mx-auto">
     
+    <h4 class="mt-2 mb-1">All Venues</h4>
+    <br>
+
+    {% for venue in venue_list %}
+        <ul>
+            <li><a href="{% url 'venue_details' venue.pk %}"><strong>{{ venue.name }}</strong></a> ({{ venue.country }})</li>
+        </ul>
+    {% endfor %}
+
+</div>  
+
 {% endblock content %} 
