@@ -56,7 +56,7 @@ class Event(models.Model):
     end_date = models.DateField('End Date')
     end_time = models.TimeField('End Time', blank=True, null=True)
     description = models.TextField(max_length=500, blank=True)
-    image = models.ImageField(blank=True, null=True)
+    image = models.ImageField(upload_to='event/',blank=True, null=True)
     lineup = models.ManyToManyField(Artist, related_name='gigs', blank=True)
     organizer = models.CharField(max_length=100, blank=True)
     website = models.URLField('Event Website', blank=True)
@@ -69,4 +69,4 @@ class Event(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('event_list')        
+        return reverse('event_list')
