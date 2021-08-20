@@ -5,7 +5,7 @@
 {% block content %}    
 
 <div class="container w-75 mt-3 mx-auto">
-    
+
     <h4 class="mt-2 mb-1">Upcoming Events</h4>
     <br>
 
@@ -24,8 +24,7 @@
                 <a href="{% url 'event_details' event.pk %}" class="btn btn-primary btn-sm">See Details</a>
             </div>
 
-            <div class="card-footer text-muted py-2">
-                
+            <div class="card-footer text-muted py-2">                
                 <div class="float-start"><a href="{{ event.website }}" taget="_blank">Check {{ event.name }} on Facebook</a></div>
                 <div class="float-end">{{ event.name }} starts in {{event.start_date|timeuntil}}.</div>
             </div>

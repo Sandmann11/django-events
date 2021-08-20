@@ -4,26 +4,38 @@
 
 {% block content %}
 
-    <div class="card w-75 mx-auto my-2">
-        
-        <div class="card-body">
-                <h4 class="card-title">{{ venue.name }}</h4>
-                <p>{{ venue.address }}</p>
-                <p>{{ venue.city }}</p>
-                <p>{{ venue.country }}</p>
-                <a href="{% url 'venue_update' venue.pk %}">Edit</a>
-                <hr>
-                <h5>All Events in {{ venue.name }}</h5>
-                            
-                {% for gig in venue.gigs.all %}
-                    <ul>
-                        <li><a href="{% url 'event_details' gig.pk %}">{{ gig }}</a></li>
-                    </ul>
-                {% endfor %}
 
-                <hr>
-                {{ venue.website|urlize }}
+<div class="container">
+    <div class="card w-75 mx-auto my-2">        
+        <div class="card-body">
+            <div class="row">
+
+                <div class="col">
+                    <h4 class="card-title my-0">{{ venue.name }}</h4>
+                    <p class="mt-0 mb-2">{{ venue.city }}, {{ venue.country }}</p>
+                    {{ venue.website|urlize }}
+                    <p class="my-0"><small><a href="{% url 'venue_update' venue.pk %}">Edit</a></small></p>
+                </div>
+
+                <div class="col">
+                    <h5>All Events in {{ venue.name }}</h5>                            
+                    {% for gig in venue.gigs.all %}
+                        <ul>
+                            <li><a href="{% url 'event_details' gig.pk %}">{{ gig }}</a></li>
+                        </ul>
+                    {% endfor %}
+                </div>
+
+                <div class="col">
+                    <iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d65777.0147701757!2d20.95083016400414!3d52.21698835988084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecb392c316bbb%3A0x15c4814195f799d9!2sProgresja!5e0!3m2!1spl!2spl!4v1629405727915!5m2!1spl!2spl" 
+                    style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+
+            </div>
         </div>
     </div>
-    
-{% endblock content %} 
+</div>
+
+
+{% endblock content %}
