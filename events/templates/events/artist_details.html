@@ -4,7 +4,7 @@
 
 {% block content %}
 
-      <div class="card w-75 mx-auto my-2">
+      <div class="card mx-auto my-2">
             
             {% if artist.image %}
                   <img src="{{ artist.image.url }}" class="card-img-top" alt="...">
@@ -30,7 +30,7 @@
                   {% endfor %}
 
                   <hr>
-                  {{ artist.website|urlize }}
+                  {{ artist.website|default_if_none:'No website...'|urlize}}
             </div>
       </div>
     

@@ -21,7 +21,6 @@ def home(request):
 
 
 # Event Views
-
 class EventList(ListView):
     model = Event
     template_name = 'events/event_list.html'
@@ -46,7 +45,6 @@ class EventUpdate(UpdateView):
 
 
 # Artist Views
-
 class ArtistList(ListView):
     model = Artist
     template_name = 'events/artist_list.html'
@@ -70,8 +68,7 @@ class ArtistUpdate(UpdateView):
     template_name = 'events/artist_update.html'
 
 
-# Venue Views    
-
+# Venue Views
 class VenueList(ListView):
     model = Venue
     template_name = 'events/venue_list.html'
