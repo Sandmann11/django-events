@@ -3663,7 +3663,7 @@ fieldset:disabled .btn {
 .btn-sm, .btn-group-sm > .btn {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
-  border-radius: 0.6rem;
+  border-radius: 0.4rem;
 }
 
 .fade {
@@ -4277,8 +4277,8 @@ fieldset:disabled .btn {
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
 }
 
 .navbar > .container,
