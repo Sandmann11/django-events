@@ -22,8 +22,8 @@ class ArtistAdmin(admin.ModelAdmin):
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    fields = ('name', 'category', 'venue', 'start_date', 'end_date')
+    fields = ('name', 'category', 'venue', 'start_date', 'end_date', 'description', 'lineup', 'image')
     list_display = ('name', 'start_date', 'category', 'venue')
     list_filter = ('start_date', 'category', 'venue')
     ordering = ('start_date',)
-    search_fields = ('name', 'category', 'venue')
+    search_fields = ('name', 'category', 'venue', 'lineup')
