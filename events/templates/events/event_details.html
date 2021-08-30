@@ -13,7 +13,8 @@
 
     <h3 class="mt-3 mb-0" >{{ event.name }}</h3>
     <p class="my-0"><small><em>{{ event.category }}</em></small></p>
-    <p class="my-0"><small><a href="{% url 'event_update' event.pk %}">Edit</a></small></p>
+    <p class="my-0"><small><a href="{% url 'event_update' event.pk %}">Edit</a> | 
+        <a href="{% url 'event_delete' event.pk %}">Delete</a></small></p>
 
     <ul class="nav nav-tabs my-3">
         <li class="nav-item">

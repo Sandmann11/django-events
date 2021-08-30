@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from datetime import datetime
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Artist, Event, Venue
 from .forms import EventForm, ArtistForm, VenueForm
+from django.urls import reverse_lazy
 
 
 now = datetime.now()
@@ -41,6 +42,12 @@ class EventUpdate(UpdateView):
     model = Event
     form_class = EventForm
     template_name = 'events/event_update.html'
+
+
+class EventDelete(DeleteView):
+    model = Event
+    template_name = 'events/event_delete.html'
+    success_url = reverse_lazy('event_list')
 
 
 class ArtistList(ListView):
