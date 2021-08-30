@@ -20,7 +20,6 @@ class Venue(models.Model):
         return reverse('venue_list')
 
 
-
 class Artist(models.Model):
     name = models.CharField(max_length=100)
     country = models.CharField(max_length=100, blank=True, null=True)
@@ -35,10 +34,8 @@ class Artist(models.Model):
         return reverse('artist_list')
 
 
-
 class Category(models.Model):
     name = models.CharField(max_length=255)
-
     class Meta:
         verbose_name_plural = "Categories"
 
@@ -47,7 +44,6 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return reverse('category_list')
-
 
 
 class Event(models.Model):
