@@ -44,6 +44,7 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return reverse('category_list')
+        
 
 
 class Event(models.Model):
