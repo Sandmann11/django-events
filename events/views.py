@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from datetime import datetime
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic.base import TemplateView
 from .models import Artist, Event, Venue
 from .forms import EventForm, ArtistForm, VenueForm
 from django.urls import reverse_lazy
@@ -8,17 +9,20 @@ from django.urls import reverse_lazy
 
 now = datetime.now()
 
-def main(request):
-    return render(request, 'events/main.html', {})
+# def main(request):
+#     return render(request, 'events/main.html', {})
 
 
-def home(request):
-    current_date = now.strftime('%d-%m-%Y')
-    current_time = now.strftime('%H:%M')
-    return render(request, 'events/home.html', {
-        'current_date': current_date,
-        'current_time': current_time,
-    })
+# def home(request):
+#     current_date = now.strftime('%d-%m-%Y')
+#     current_time = now.strftime('%H:%M')
+#     return render(request, 'events/home.html', {
+#         'current_date': current_date,
+#         'current_time': current_time,
+#     })
+
+class HomeView(TemplateView):
+    template_name = 'events/home.html'
 
 
 class EventList(ListView):

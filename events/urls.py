@@ -1,10 +1,10 @@
 from django.urls import path
 from . import views
-from .views import EventList, EventDetails, EventAdd, EventUpdate, EventDelete, ArtistList, ArtistDetails, ArtistAdd, ArtistUpdate, VenueList, VenueDetails, VenueAdd, VenueUpdate
+from .views import HomeView, EventList, EventDetails, EventAdd, EventUpdate, EventDelete, ArtistList, ArtistDetails, ArtistAdd, ArtistUpdate, VenueList, VenueDetails, VenueAdd, VenueUpdate
 
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', HomeView.as_view(), name='home'),
 
     path('event_list/', EventList.as_view(), name='event_list'),
     path('event_details/<int:pk>/', EventDetails.as_view(), name='event_details'),
