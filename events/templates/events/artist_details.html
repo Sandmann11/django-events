@@ -2,12 +2,18 @@
 {% block title %}Artist Details{% endblock %}
 {% load static %}
 
+<link rel="stylesheet" href="{% static 'css/artist_images.css' %}" type="text/css" media="screen">
+
 {% block content %}
 
-      <div class="card mx-auto my-2">
+<div class="container">
+      <div class="card mx-auto my-4">
             
             {% if artist.image %}
-                  <img src="{{ artist.image.url }}" class="card-img-top" alt="...">
+
+                  <div>
+                        <img src="{{ artist.image.url }}" class="artist_image card-img-top" alt="...">
+                  </div>
 
             {% else %}
                   <img src="{% static 'img/artist/artist_generic.jpg' %}" class="card-img-top" alt="...">
@@ -33,5 +39,6 @@
                   {{ artist.website|default_if_none:'No website...'|urlize}}
             </div>
       </div>
-    
+</div>
+
 {% endblock content %} 
