@@ -7,6 +7,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbar">
+
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'event_list' %}">Events</a>
@@ -26,16 +27,41 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'venue_add' %}">+Venue</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'register' %}">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
-                </li>
+
+                {% if user.is_authenticated %}
+                
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
+                    </li>
+
+                {% else %}
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'register' %}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+                    </li>
+
+                {% endif %}                   
+
             </ul>
+
             <form>
                 <input class="form-control px-2 py-1" type="text" placeholder="Search" aria-label="Search">
             </form>
+
+            <ul class="navbar-nav ms-2 mb-2 mb-lg-0">
+                <li class="nav-item">
+                    {% if user.is_authenticated %}
+                        <a class="nav-link fw-light fst-italic">Logged in as {{ user.username }}</a>
+                    {% else %}
+                        <a class="nav-link fw-light fst-italic">Not logged in</a>
+                    {% endif %}
+                </li>
+            </ul>
+
         </div>
+
     </div>
 </nav>
