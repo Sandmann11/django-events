@@ -3,21 +3,18 @@
 
 {% block content %}
 
-<div class="container w-75 my-1">
+<div class="container w-75 my-3">
     <h4>Login</h4>
-    <br>
 
-    <div class="form-group">
-
+    <div class="form-group mt-3">
         <form method="POST">                
             {% csrf_token %}
             {{ form.as_p }}
             <br>
             <button class="btn btn-primary">Login</button> 
         </form>
-
     </div> 
-           
+
 </div>
     
 {% endblock content %} 

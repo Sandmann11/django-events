@@ -12,23 +12,27 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'event_list' %}">Events</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'event_add' %}">+Event</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'artist_list' %}">Artists</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'artist_add' %}">+Artist</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'venue_list' %}">Venues</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'venue_add' %}">+Venue</a>
-                </li>
+
 
                 {% if user.is_authenticated %}
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'event_add' %}">+Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'artist_add' %}">+Artist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'venue_add' %}">+Venue</a>
+                    </li>
                 
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>

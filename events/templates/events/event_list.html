@@ -9,27 +9,27 @@
     <h5 class="mt-2 mb-1">Upcoming Events</h5>
     <br>
 
-    {% for event in event_list %}
+    {% for event in event_list %}        
+                   
+            <div class="card border-dark mb-3">
 
-        <div class="card border-dark mb-3">
+                <div class="card-header">
+                    <div class="float-start fw-normal">{{ event.start_date|date:'Y.m.d' }} - {{ event.end_date|date:'Y.m.d' }}</div>
+                    <div class="float-end fw-normal">{{ event.venue.city }}, {{ event.venue.country }}</div>
+                </div>
+                    
+                <div class="card-body py-2">
+                    <h4 class="card-title mb-0">{{ event.name }}</h4>
+                    <p class="mt-0"><small><em>{{ event.category }}</em></small></p>
+                    <a href="{% url 'event_details' event.pk %}" class="btn btn-primary btn-sm">See Details</a>
+                </div>
 
-            <div class="card-header">
-                <div class="float-start fw-normal">{{ event.start_date|date:'Y.m.d' }} - {{ event.end_date|date:'Y.m.d' }}</div>
-                <div class="float-end fw-normal">{{ event.venue.city }}, {{ event.venue.country }}</div>
+                <div class="card-footer d-flex justify-content-between align-items-center text-muted py-2">                
+                    <div><a href="{{ event.website }}" taget="_blank">Check {{ event.name }} on Facebook</a></div>
+                    <div>{{ event.name }} starts in {{event.start_date|timeuntil}}.</div>
+                </div>
+
             </div>
-                
-            <div class="card-body py-2">
-                <h4 class="card-title mb-0">{{ event.name }}</h4>
-                <p class="mt-0"><small><em>{{ event.category }}</em></small></p>
-                <a href="{% url 'event_details' event.pk %}" class="btn btn-primary btn-sm">See Details</a>
-            </div>
-
-            <div class="card-footer d-flex justify-content-between align-items-center text-muted py-2">                
-                <div><a href="{{ event.website }}" taget="_blank">Check {{ event.name }} on Facebook</a></div>
-                <div>{{ event.name }} starts in {{event.start_date|timeuntil}}.</div>
-            </div>
-
-        </div>
 
     {% endfor %}
 
