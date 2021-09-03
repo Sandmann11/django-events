@@ -2,6 +2,10 @@
     font-family: Roboto;
 } */
 
+.card {
+    border-radius: 0.4rem;
+}
+
 .card-body ul {
     line-height: 1;
     margin-bottom: 0.5rem;
@@ -9,6 +13,11 @@
 
 .card-body h5 {
     line-height: 1.5;
+}
+
+.card-header {
+    border-top-left-radius: 0.4rem !important;
+    border-top-right-radius: 0.4rem !important;
 }
 
 .form-group

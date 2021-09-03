@@ -28,7 +28,7 @@
 
 
                   
-                  <p>{{ artist.description|default_if_none:'No info...'|linebreaks }}</p>
+                  <p>{{ artist.description|default_if_none:'No info...'|linebreaks|safe }}</p>
                   
                   <hr>
                   <h5>Playing at:</h5>

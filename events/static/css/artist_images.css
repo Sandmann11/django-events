@@ -1,4 +1,6 @@
 .artist_image {
     height:400px;
     object-fit: cover;
+    border-top-left-radius: 0.4rem !important;
+    border-top-right-radius: 0.4rem !important;
   }

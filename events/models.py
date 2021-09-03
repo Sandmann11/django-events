@@ -23,7 +23,7 @@ class Venue(models.Model):
 class Artist(models.Model):
     name = models.CharField(max_length=100)
     country = models.CharField(max_length=100, blank=True, null=True)
-    description = models.TextField(max_length=1000, blank=True, null=True)
+    description = models.TextField(max_length=10000, blank=True, null=True)
     website = models.URLField(blank=True, null=True)
     image = models.ImageField(upload_to='artist/', blank=True, null=True)
 
