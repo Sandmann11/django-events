@@ -2,18 +2,13 @@
 {% block title %}Artist Details{% endblock %}
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'css/artist_images.css' %}" type="text/css" media="screen">
-
 {% block content %}
 
 <div class="container">
       <div class="card mx-auto my-4">
             
             {% if artist.image %}
-
-                  <div>
-                        <img src="{{ artist.image.url }}" class="artist_image card-img-top" alt="...">
-                  </div>
+                  <img src="{{ artist.image.url }}" class="artist_image card-img-top" alt="...">
 
             {% else %}
                   <img src="{% static 'img/artist/artist_generic.jpg' %}" class="card-img-top" alt="...">
@@ -21,9 +16,18 @@
             {% endif %}
 
             <div class="card-body">
-                  <h4 class="card-title mb-0">{{ artist.name }} <span class="fw-lighter">({{ artist.country }})</span></h4>
-                  <!-- <a href="{% url 'artist_update' artist.pk %}">Edit</a> -->
-                  <p class="my-0"><small><a href="{% url 'artist_update' artist.pk %}">Edit</a></small></p>
+
+                  {% if user.is_authenticated %}
+                        <h4 class="card-title mb-0">{{ artist.name }} <span class="fw-lighter">({{ artist.country }})</span></h4>
+                        <p class="my-0"><small><a href="{% url 'artist_update' artist.pk %}">Edit</a></small></p>
+
+                  {% else %}
+                        <h4 class="card-title mb-3">{{ artist.name }} <span class="fw-lighter">({{ artist.country }})</span></h4>
+
+                  {% endif %}
+
+
+                  
                   <p>{{ artist.description|default_if_none:'No info...'|linebreaks }}</p>
                   
                   <hr>
