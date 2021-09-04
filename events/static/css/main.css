@@ -1,6 +1,6 @@
-/* body {
-    font-family: Roboto;
-} */
+a {
+    text-decoration: none;
+}
 
 .card {
     border-radius: 0.4rem;
@@ -18,6 +18,19 @@
 .card-header {
     border-top-left-radius: 0.4rem !important;
     border-top-right-radius: 0.4rem !important;
+}
+
+.card-title {
+    text-decoration: none !important;
+}
+
+.nav-tabs {
+    
+    background-color: aquamarine;
+}
+
+.btn {
+    border-radius: 0.3rem !important;
 }
 
 .form-group
@@ -57,3 +70,4 @@ select#id_end_date_year.form-control{
 .form-group label{
     display: block;
 }
+
