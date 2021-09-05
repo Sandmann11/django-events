@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models.fields import CharField
 from django.utils import timezone
 from django.urls import reverse
+import datetime
 
 
 class Venue(models.Model):
@@ -63,6 +64,15 @@ class Event(models.Model):
     email = models.EmailField('Contact Email', blank=True)
     tickets = models.URLField('Buy Tickets URL', blank=True)
     created_date = models.DateTimeField(default=timezone.now)
+
+    def is_active(self):
+        now = timezone.now().date()
+        active = True
+        ev_start = self.start_date
+        if now > ev_start:
+            active = False
+        return active
+
 
     def __str__(self):
         return self.name
