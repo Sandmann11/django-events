@@ -9,17 +9,6 @@ from django.urls import reverse_lazy
 
 now = datetime.now()
 
-# def main(request):
-#     return render(request, 'events/main.html', {})
-
-
-# def home(request):
-#     current_date = now.strftime('%d-%m-%Y')
-#     current_time = now.strftime('%H:%M')
-#     return render(request, 'events/home.html', {
-#         'current_date': current_date,
-#         'current_time': current_time,
-#     })
 
 class HomeView(TemplateView):
     template_name = 'events/home.html'
@@ -99,7 +88,23 @@ class VenueUpdate(UpdateView):
     form_class = VenueForm
     template_name = 'events/venue_update.html'
 
+
 class ArchiveView(ListView):
     model = Event
     template_name = 'events/archive.html'
     ordering = ['-start_date']
+
+
+def search_events(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        events = Event.objects.filter(name__icontains=searched)
+        return render(request, 'events/search_results.html', {
+            'searched': searched,
+            'events': events,
+            })
+    else:
+        return render(request, 'events/search_results.html', {})
+
+# class SearchResultsView(ListView):
+#     template_name = 'events/search_results.html'

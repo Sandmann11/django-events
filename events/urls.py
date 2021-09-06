@@ -1,7 +1,7 @@
 from django.urls import path
-# from . import views
-from .views import ArchiveView, HomeView, EventList, EventDetails, EventAdd, EventUpdate, EventDelete, ArtistList, ArtistDetails, ArtistAdd, ArtistUpdate, VenueList, VenueDetails, VenueAdd, VenueUpdate, ArchiveView
-
+from . import views
+# from .views import ArchiveView, HomeView, EventList, EventDetails, EventAdd, EventUpdate, EventDelete, ArtistList, ArtistDetails, ArtistAdd, ArtistUpdate, VenueList, VenueDetails, VenueAdd, VenueUpdate, ArchiveView, search_events
+from .views import *
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
@@ -23,4 +23,5 @@ urlpatterns = [
     path('venue_update/<int:pk>/', VenueUpdate.as_view(), name='venue_update'),
 
     path('archive/', ArchiveView.as_view(), name='archive'),
+    path('search_results/', views.search_events, name='search_results'),
 ]

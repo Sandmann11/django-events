@@ -4,36 +4,33 @@
 
 {% block content %}    
 
-<div class="container-lg mt-3 mx-auto">
-
-    <h5 class="px-3 mt-3 mb-2 display-6">Archive</h5>
+<div class="container-lg w-75 mt-3 mx-auto">
+    
+    <h5 class="ms-5 ps-5 mt-3 mb-2 display-6 fs-3 mx-auto">Past Events</h5>
     <br>
 
     {% for event in event_list %}
     
         {% if not event.is_active %}
                    
-            <div class="card border-dark mb-3">
+            <div class="card border-dark w-75 mb-4 mx-auto">
 
-                <div class="card-header">
+                <div class="card-header py-1">
                     <div class="d-flex justify-content-between px-2">
-                        <div class="display-6 fs-6">Event took place on {{ event.start_date|date:'d M, Y' }}</div>
-                        <div class="display-6 fs-6 text-muted">Archived</div>
+                        <div class="fw-light text-muted"><small>Event took place on {{ event.start_date|date:'d M, Y' }}</small></div>
+                        <div class="fw-light text-muted"><small>Archived</small></div>
                     </div>
-
                 </div>
-                    
-                <div class="card-body px-3 pb-1 pt-2">
-                    <p class="card-title text-decoration-none h2 display-6 fs-2 mb-0"><a href="{% url 'event_details' event.pk %}">{{ event.name }}</a></p>
-                    <p class="mt-0 pt-0 mb-4 lh-1 text-muted"><small><em>{{ event.category }}</em></small></p>
-                    <div class="display-6 fs-5 mb-1">{{ event.venue.city }}, {{ event.venue.country }}</div> 
-
+                <div class="card-body px-3 pt-2 pb-2">
+                    <div class="card-title text-decoration-none h1 display-6 fs-2 mb-2"><a class="stretched-link fw-normal" href="{% url 'event_details' event.pk %}">{{ event.name }}</a></div>
+                    <div class="display-6 fs-5 pb-1">{{ event.venue.city }}, {{ event.venue.country }}</div>                              
                 </div>
 
-                <div class="card-footer d-flex justify-content-between align-items-center text-muted px-3 py-2">  
-                                
-                    <div><a href="{{ event.website }}" class="text-decoration-none text-muted" target="_blank">{{ event.name }} on Facebook</a></div>
-                    
+                <div class="card-footer d-flex justify-content-between align-items-center px-3 py-1">               
+                    <div class="mt-0 pt-0 fw-light text-muted"><small>{{ event.category }}</small></div>  
+                    <div>
+                        <small><a href="{{ event.website }}" class="text-decoration-none fw-light text-muted" target="_blank">{{ event.name }} on Facebook</a></small>
+                    </div>
                 </div>
 
             </div>

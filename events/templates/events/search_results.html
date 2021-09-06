@@ -1,0 +1,34 @@
+{% extends 'events/main.html' %}
+{% load static %}
+{% block title %}Search Results{% endblock %}
+
+{% block content %}    
+
+    <div class="container mt-3 mx-auto">
+
+        {% if searched %}
+
+            <h6 class="mt-2 mb-2 ps-2 display-6 fs-3">Search results for "{{ searched }}"</h6>            
+            <br>
+
+            {% for event in events %}
+
+                <div class="card w-50 mb-3">
+                    <div class="card-body d-flex list-group-item justify-content-between align-items-center px-2 py-1 text-white">
+                        <!-- {{ event }} -->
+                        <a href="{% url 'event_details' event.pk %}" class="lead text-decoration-none stretched-link">{{ event }}</a>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+
+        {% else %}
+
+            <div class="mt-2 mb-2 ps-2 display-6 fs-3">You didn't search for anything</div>
+
+        {% endif %}
+
+    </div>
+    
+{% endblock content %}

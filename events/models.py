@@ -67,9 +67,9 @@ class Event(models.Model):
 
     def is_active(self):
         now = timezone.now().date()
-        ev_start = self.start_date
+        event_start = self.start_date
         active = True
-        if now > ev_start:
+        if now > event_start:
             active = False
             
         return active
