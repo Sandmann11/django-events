@@ -98,3 +98,8 @@ class VenueUpdate(UpdateView):
     model = Venue
     form_class = VenueForm
     template_name = 'events/venue_update.html'
+
+class ArchiveView(ListView):
+    model = Event
+    template_name = 'events/archive.html'
+    ordering = ['-start_date']

@@ -18,6 +18,11 @@ a {
 .card-header {
     border-top-left-radius: 0.4rem !important;
     border-top-right-radius: 0.4rem !important;
+    background-color: #263341; 
+}
+
+.card-footer {
+    background-color: #212529 !important;
 }
 
 .card-title {

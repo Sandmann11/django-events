@@ -67,12 +67,12 @@ class Event(models.Model):
 
     def is_active(self):
         now = timezone.now().date()
-        active = True
         ev_start = self.start_date
+        active = True
         if now > ev_start:
             active = False
+            
         return active
-
 
     def __str__(self):
         return self.name
