@@ -45,6 +45,7 @@ class EventDelete(DeleteView):
 
 class ArtistList(ListView):
     model = Artist
+    paginate_by = 10
     template_name = 'events/artist_list.html'
     ordering = ['name']
 

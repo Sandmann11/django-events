@@ -8,21 +8,28 @@
 
         <div class="card-header px-3 py-2 mb-0 d-flex justify-content-between">
             
-            <div>
-                <h1 class="card-title fs-1 my-0 lh-sm display-6">{{ event.name }}</h1>
+            <!-- <div> -->
+            <h1 class="card-title fs-1 my-0 lh-sm display-6">{{ event.name }}</h1>
+            
+            {% if not event.is_active %}
+
+            <h3 class="my-0 fw-normal text-danger align-self-center">Archived</h3>
+
+            {% endif %}
+                
                 <!-- <p class="my-0 fw-light"><small><em>{{ event.start_date }}</em></small></p> -->
-            </div>
+            <!-- </div> -->
 
         </div>
 
         <div class="card-body pt-0 px-0">
 
             <nav class="nav nav-tabs nav-fill mt-0 mb-3">
-                <a class="nav-link active fw-700 fs-6 text-dark" data-bs-toggle="tab" href="#details">Details</a>
-                <a class="nav-link fw-700 fs-6 text-dark" data-bs-toggle="tab" href="#lineup">Lineup</a>
-                <a class="nav-link fw-700 fs-6 text-dark" data-bs-toggle="tab" href="#venue">Venue</a>
-                <a class="nav-link fw-700 fs-6 text-dark" data-bs-toggle="tab" href="#tickets">Tickets</a>
-                <a class="nav-link fw-700 fs-6 text-dark" data-bs-toggle="tab" href="#contact">Contact</a>
+                <a class="nav-link active lead fs-6 fw-normal text-body" id="event-nav" data-bs-toggle="tab" href="#details">Details</a>
+                <a class="nav-link lead fs-6 fw-normal text-body" id="event-nav" data-bs-toggle="tab" href="#lineup">Lineup</a>
+                <a class="nav-link lead fs-6 fw-normal text-body" id="event-nav" data-bs-toggle="tab" href="#venue">Venue</a>
+                <a class="nav-link lead fs-6 fw-normal text-body" id="event-nav" data-bs-toggle="tab" href="#tickets">Tickets</a>
+                <a class="nav-link lead fs-6 fw-normal text-body" id="event-nav" data-bs-toggle="tab" href="#contact">Contact</a>
             </nav>
 
             <div id="myTabContent" class="tab-content px-3">

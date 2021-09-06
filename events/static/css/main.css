@@ -29,9 +29,38 @@ a {
     text-decoration: none !important;
 }
 
+.pg-left {
+    align-self: flex-start !important;
+}
+
+
+
+#event-nav {
+    /* border-width: 1px !important;
+    border-style: solid !important;
+    border-left: rgb(98, 155, 182) !important;
+    border-right: rgb(98, 155, 182) !important; */
+    border-top-width: 0px !important;
+    border-bottom-width: 0px !important;
+    border-collapse: collapse;
+}
+
+#event-nav.active {
+    background-color: rgb(55, 84, 99);
+    border-top-width: 0px !important;
+    border-bottom-width: 0px !important;
+    border-collapse: collapse;
+}
+
 .nav-tabs {
-    
-    background-color: aquamarine;
+    /* border-width: 1px !important;
+    border-style: solid !important;
+    border-left: rgb(98, 155, 182) !important;
+    border-right: rgb(98, 155, 182) !important; */
+    font-weight: 700 !important;
+    background-color: rgb(98, 155, 182);
+    border-top-width: 0px !important;
+    border-bottom-width: 0px !important;
 }
 
 .btn {
