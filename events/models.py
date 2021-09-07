@@ -1,8 +1,7 @@
 from django.db import models
-from django.db.models.fields import CharField
 from django.utils import timezone
 from django.urls import reverse
-import datetime
+
 
 
 class Venue(models.Model):

@@ -7,9 +7,6 @@ from .forms import EventForm, ArtistForm, VenueForm
 from django.urls import reverse_lazy
 
 
-now = datetime.now()
-
-
 class HomeView(TemplateView):
     template_name = 'events/home.html'
 
@@ -106,6 +103,3 @@ def search_events(request):
             })
     else:
         return render(request, 'events/search_results.html', {})
-
-# class SearchResultsView(ListView):
-#     template_name = 'events/search_results.html'
