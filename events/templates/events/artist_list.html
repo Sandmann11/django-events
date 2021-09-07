@@ -4,15 +4,14 @@
 
 {% block content %}    
 
-<div class="container-lg w-75 mt-3 mx-auto">
+<div class="container-lg mt-3 mx-auto">
     
-    <h5 class="ms-5 ps-5 mt-3 mb-2 display-6 fs-3 mx-auto">All Artists</h5>
+    <h5 class="ps-3 mt-3 mb-2 display-6 fs-3">All Artists</h5>
     <br>
-
 
     {% for artist in artist_list %}
 
-        <div class="card w-75 mb-3 px-2 mx-auto">
+        <div class="card w-75 mb-3 px-2">
             <div class="card-body d-flex list-group-item justify-content-between align-items-center px-2 py-2">
                 <a href="{% url 'artist_details' artist.pk %}" class="lead text-decoration-none stretched-link">{{ artist.name }}</a>
                 <div class="text-muted">{{ artist.country }}</div>
@@ -21,21 +20,23 @@
 
     {% endfor %}
 
-    <div class="pagination container-lg w-75 mb-3 px-2 mx-auto">
-        <span class="step-links">
+    <div class="pagination mb-3">
+        <span class="step-links w-75 text-center">
+
             {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; First</a>
+                <a class="me-3" href="?page=1">&laquo; First</a>
                 <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
             {% endif %}
     
-            <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            <span class="current mx-4">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
             </span>
     
             {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">Next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+                <a class="me-3" href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}"> Last &raquo;</a>
             {% endif %}
+
         </span>
     </div>
 

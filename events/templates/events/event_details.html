@@ -4,7 +4,7 @@
 
 {% block content %}    
 <div class="container">
-    <div class="card mt-4 mb-2">
+    <div class="card w-75 mt-4 mb-2">
 
         <div class="card-header px-3 py-2 mb-0 d-flex justify-content-between">
             
@@ -42,9 +42,9 @@
                     {% for artist in event.lineup.all %}
 
 
-                        <ul class="list-group w-25 mb-2">       
+                        <ul class="list-group w-50 mb-2">       
                             <li class="d-flex list-group-item justify-content-between align-items-center px-2 py-1">
-                                <div><a href="{% url 'artist_details' artist.pk %}" class="fs-6 text-dark text-decoration-none stretched-link">{{ artist.name }}</a></div>
+                                <div><a href="{% url 'artist_details' artist.pk %}" class="fs-6 text-dark text-decoration-none fw-normal stretched-link">{{ artist.name }}</a></div>
                                 <div class="text-dark"><small>{{ artist.country }}</small></div>
                             </li>
                         </ul>
@@ -56,7 +56,7 @@
         
                 <div class="tab-pane fade" id="venue">
                     <p><a href="{% url 'venue_details' event.venue.pk %}">{{ event.venue.name }}</a></p>
-                    <p>{{ event.venue.city }}, {{ event.venue.country }}</p>
+                    <p>{{ event.venue.address }}<br>{{ event.venue.city }}<br>{{ event.venue.country }}</p>
                 </div>  
         
                 <div class="tab-pane fade" id="tickets">
@@ -67,7 +67,7 @@
                     <ul class="lh-lg">
                         <li><strong>Organizer: </strong>{{ event.organizer }}</li>
                         <li><strong>Email: </strong>{{ event.email }}</li>
-                        <li><strong>Website: </strong><a href="{{ event.social_media }}">{{ event.social_media }}</a></li>
+                        <li><strong>Website: </strong><a href="{{ event.website }}">{{ event.website }}</a></li>
                     </ul>
                 </div>
 
