@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from datetime import datetime
+# from datetime import datetime
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.views.generic.base import TemplateView
 from .models import Artist, Event, Venue
