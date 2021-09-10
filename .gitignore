@@ -1,5 +1,5 @@
 /venv
-*/img
+# */img
 __pycache__
 *.pyc
 *~
