@@ -9,6 +9,18 @@
     <h5 class="ps-3 mt-3 mb-2 display-6 fs-3">Upcoming Events</h5>
     <br>
 
+    <!-- <div class="row">
+        <div class="col">
+            <div class="card card-body">
+
+                <form method="GET"></form>
+                    {{ ev_filter.form }}
+                <button class="btn btn primary" type="submit">Search</button>
+                
+            </div>
+        </div>
+    </div> -->
+
     {% for event in event_list %}
     
         {% if event.is_active %}

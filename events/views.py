@@ -1,10 +1,10 @@
 from django.shortcuts import render
-# from datetime import datetime
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.views.generic.base import TemplateView
 from .models import Artist, Event, Venue
 from .forms import EventForm, ArtistForm, VenueForm
 from django.urls import reverse_lazy
+# from .filters import EventFilter
 
 
 class HomeView(TemplateView):
@@ -14,6 +14,7 @@ class HomeView(TemplateView):
 class EventList(ListView):
     model = Event
     template_name = 'events/event_list.html'
+    # ev_filter = EventFilter()
     ordering = ['start_date']
 
 
