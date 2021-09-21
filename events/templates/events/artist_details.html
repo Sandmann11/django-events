@@ -35,7 +35,11 @@
                               
                   {% for gig in artist.gigs.all %}
                         <ul>
-                              <li><a href="{% url 'event_details' gig.pk %}">{{ gig }}</a></li>
+                              <li>
+                                    <a href="{% url 'event_details' gig.pk %}">{{ gig }}</a>
+                                    (<a href="{% url 'venue_details' gig.venue.pk %}">{{ gig.venue }}</a>, {{ gig.venue.city }}, {{ gig.venue.country }}) - {{ gig.start_date|date:'d M, Y' }}
+                                    
+                              </li>
                         </ul>
                   {% endfor %}
 

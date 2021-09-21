@@ -14,7 +14,6 @@ class HomeView(TemplateView):
 class EventList(ListView):
     model = Event
     template_name = 'events/event_list.html'
-    # ev_filter = EventFilter()
     ordering = ['start_date']
 
 
@@ -43,7 +42,7 @@ class EventDelete(DeleteView):
 
 class ArtistList(ListView):
     model = Artist
-    paginate_by = 5
+    paginate_by = 7
     template_name = 'events/artist_list.html'
     ordering = ['name']
 
