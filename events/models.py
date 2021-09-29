@@ -3,7 +3,6 @@ from django.utils import timezone
 from django.urls import reverse
 
 
-
 class Venue(models.Model):
     name = models.CharField('Venue Name', max_length=75)
     address = models.CharField(max_length=200, blank=True)

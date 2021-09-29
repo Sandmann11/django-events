@@ -31,16 +31,25 @@
                   <p>{{ artist.description|default_if_none:'No info...'|linebreaks|safe }}</p>
                   
                   <hr>
-                  <h5>Playing at:</h5>
+                  <h6 class="lead">Upcoming events with {{ artist.name }}:</h6>
                               
                   {% for gig in artist.gigs.all %}
-                        <ul>
-                              <li>
-                                    <a href="{% url 'event_details' gig.pk %}">{{ gig }}</a>
+
+
+                        <ul class="list-group w-50 mb-2">       
+                              <li class="d-flex list-group-item justify-content-between align-items-center px-2 py-1">
+                                    <div><a href="{% url 'event_details' gig.pk %}" class="text-dark text-decoration-none fw-normal">{{ gig }}</a><small> ({{ gig.start_date|date:'d M, Y' }})</small></div>
+                                    <div><small><a href="{% url 'venue_details' gig.venue.pk %}" class="text-dark">{{ gig.venue }}</a>, {{ gig.venue.city }}, {{ gig.venue.country }}</small></div>
+                              </li>
+                        </ul>
+
+                        <!-- <ul class="list-group w-50 mb-2">
+                              <li class="d-flex list-group-item justify-content-between align-items-center px-2 py-1">
+                                    <div><a href="{% url 'event_details' gig.pk %}">{{ gig }}</a>
                                     (<a href="{% url 'venue_details' gig.venue.pk %}">{{ gig.venue }}</a>, {{ gig.venue.city }}, {{ gig.venue.country }}) - {{ gig.start_date|date:'d M, Y' }}
                                     
                               </li>
-                        </ul>
+                        </ul> -->
                   {% endfor %}
 
                   <hr>
