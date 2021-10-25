@@ -1,0 +1,106 @@
+a {
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.card {
+    border-radius: 0.4rem;
+}
+
+.card-body ul {
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.card-body h5 {
+    line-height: 1.5;
+}
+
+.card-header {
+    border-top-left-radius: 0.4rem !important;
+    border-top-right-radius: 0.4rem !important;
+    background-color: #94430000; 
+}
+
+.card-footer {
+    background-color: #0f1d46ea !important;
+}
+
+.card-title {
+    text-decoration: none !important;
+}
+
+.pg-left {
+    align-self: flex-start !important;
+}
+
+#event-nav {
+    /* border-width: 1px !important;
+    border-style: solid !important;
+    border-left: rgb(98, 155, 182) !important;
+    border-right: rgb(98, 155, 182) !important; */
+    border-top-width: 0px !important;
+    border-bottom-width: 0px !important;
+    border-collapse: collapse;
+}
+
+#event-nav.active {
+    background-color: rgb(55, 84, 99);
+    border-top-width: 0px !important;
+    border-bottom-width: 0px !important;
+    border-collapse: collapse;
+}
+
+.nav-tabs {
+    /* border-width: 1px !important;
+    border-style: solid !important;
+    border-left: rgb(98, 155, 182) !important;
+    border-right: rgb(98, 155, 182) !important; */
+    font-weight: 700 !important;
+    background-color: rgb(98, 155, 182);
+    border-top-width: 0px !important;
+    border-bottom-width: 0px !important;
+}
+
+.btn {
+    border-radius: 0.3rem !important;
+}
+
+.form-group
+select#id_start_date_day.form-control{
+    max-width: fit-content;
+}
+
+.form-group
+select#id_start_date_month.form-control{
+    max-width: fit-content;
+}
+
+.form-group
+select#id_start_date_year.form-control{
+    max-width: fit-content;
+}
+
+.form-group
+select#id_end_date_day.form-control{
+    max-width: fit-content;
+}
+
+.form-group
+select#id_end_date_month.form-control{
+    max-width: fit-content;
+}
+
+.form-group
+select#id_end_date_year.form-control{
+    max-width: fit-content;
+}
+
+.form-control{
+    display: inline;
+}
+
+.form-group label{
+    display: block;
+}
+

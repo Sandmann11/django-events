@@ -3,19 +3,30 @@
 
 {% block content %}
 
-<div class="container w-75 my-3">
-    <h4>Add Event...</h4>
-    <br>
+    {% if user.is_authenticated %}
 
-    <div class="form-group mt-3">
-        <form method="POST" enctype="multipart/form-data">                
-            {% csrf_token %}
-            {{ form.as_p }}
+        <div class="container w-75 my-3">
+            <h4>Add Event...</h4>
             <br>
-            <button class="btn btn-primary px-5">Add</button>                    
-        </form>
-    </div>  
 
-</div>
+            <div class="form-group mt-3">
+                <form method="POST" enctype="multipart/form-data">                
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <br>
+                    <button class="btn btn-primary px-5">Add</button>                    
+                </form>
+            </div>  
+        </div>
+
+    {% else %}
+
+        <div class="container w-75 my-3">
+            <h2>You are not logged in!</h2>
+            <br>
+                               
+        </div>
+
+    {% endif %}
     
 {% endblock content %} 

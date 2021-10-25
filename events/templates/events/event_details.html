@@ -6,17 +6,17 @@
 
 <div class="container">
     <div class="card w-75 mt-4 mb-2">
-        <div class="card-header px-3 py-2 mb-0 d-flex justify-content-between">            
-            <h1 class="card-title fs-1 my-0 lh-sm display-6">{{ event.name }}</h1>
-            
+
+        <div class="card-header">            
+            <h4 class="card-title">{{ event.name }}</h4>
+
             {% if not event.is_active %}
-
                 <h3 class="my-0 fw-normal text-danger align-self-center">Archived</h3>
-
             {% endif %}
 
         </div>
-        <div class="card-body pt-0 px-0">
+
+        <div class="card-body">
             <nav class="nav nav-tabs nav-fill mt-0 mb-3">
                 <a class="nav-link active lead fs-6 fw-normal text-body" id="event-nav" data-bs-toggle="tab" href="#details">Details</a>
                 <a class="nav-link lead fs-6 fw-normal text-body" id="event-nav" data-bs-toggle="tab" href="#lineup">Lineup</a>
